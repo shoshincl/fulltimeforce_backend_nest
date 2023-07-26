@@ -32,5 +32,4 @@ jobs:
       - run: npm i --s
       - run: npm i -g pm2
       - run: npm run build
-      - run: npm run start:prod
       - run: pm2 start --only production pm2.config.js --name production --watch
