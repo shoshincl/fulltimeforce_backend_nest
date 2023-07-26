@@ -10,8 +10,8 @@ export class AppController {
     return this.appService.getUserRepositories();
   }
 
-  @Get('commits/:repo_name')
-  getCommits(@Param('repo_name') repo_name: string) {
+  @Get('repository/:repo_name')
+  getRepository(@Param('repo_name') repo_name: string) {
     return this.appService.getRepoCommits(repo_name);
   }
 }
