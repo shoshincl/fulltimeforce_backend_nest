@@ -31,5 +31,6 @@ jobs:
           remote_key: '${{ secrets.SSH_PRIVATE_KEY }}'
       - run: npm i --s
       - run: npm i -g pm2
+      - run: npm i -g @nestjs/cli
       - run: npm run build
       - run: pm2 start --only production pm2.config.js --name production --watch
