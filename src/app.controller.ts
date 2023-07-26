@@ -1,12 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller({})
+@Controller('/')
 export class AppController {
   constructor(private appService: AppService) {}
 
-  @Get()
-  getCommits() {
-    return this.appService.getRepoCommits();
+  @Get('repositories')
+  getRepositories() {
+    return this.appService.getUserRepositories();
+  }
+
+  @Get('commits/:repo_name')
+  getCommits(@Param('repo_name') repo_name: string) {
+    return this.appService.getRepoCommits(repo_name);
   }
 }
